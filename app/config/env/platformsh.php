@@ -1,5 +1,8 @@
 <?php
 
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader;
+
 $relationships = getenv('PLATFORM_RELATIONSHIPS');
 if (!$relationships) {
     return;
@@ -74,3 +77,7 @@ if (isset($relationships['redissession'])) {
 
 // Disable PHPStormPass
 $container->setParameter('ezdesign.phpstorm.enabled', false);
+
+// Load Platform.sh specific settings
+$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__));
+$loader->load('platformsh.yml');
