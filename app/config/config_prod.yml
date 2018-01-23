@@ -2,8 +2,8 @@ imports:
     - { resource: config.yml }
     - { resource: ezplatform_prod.yml }
 
-# If you are on platform.sh/docker or similar where app/cache is not writable during  runtime
-# Enabling apc(u) caching might be the answer.
+# If you are on Platform.sh/docker or similar where app/cache is not writable during runtime
+# Enabling apc(u)/redis caching might be the answer.
 
 #framework:
 #    validation:
